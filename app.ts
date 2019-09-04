@@ -9,6 +9,8 @@ import { useExpressServer } from "routing-controllers";
 import MongoProvider from "./common/mongoProvider";
 import { generateSwagger } from "./common/swagger";
 import { ignoreFavicon } from "./common/util";
+import RootController from "./controllers/root";
+import UserController from "./controllers/users";
 
 const app = express();
 
@@ -27,9 +29,8 @@ export function expressApp() {
   app.use("/swagger", express.static("./dist/swagger.json"));
 
   useExpressServer(app, {
-    controllers: [],
-    defaultErrorHandler: false,
-    // middlewares: [CustomErrorHandler],
+    controllers: [RootController, UserController],
+    defaultErrorHandler: true,
     defaults: { paramOptions: { required: true } }
   });
 
