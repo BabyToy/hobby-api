@@ -1,0 +1,23 @@
+﻿{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "allowJs": false,
+    "allowSyntheticDefaultImports": false,
+    "checkJs": false,
+    "emitDecoratorMetadata": true,
+    "lib": ["dom", "es6", "esnext"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "outDir": "dist",
+    "plugins": [{ "name": "typescript-tslint-plugin" }],
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "target": "es6",
+    "types": ["node", "mocha"]
+  },
+  "compileOnSave": true,
+  "exclude": ["node_modules", "dist"]
+}
