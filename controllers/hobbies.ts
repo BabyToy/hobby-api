@@ -12,7 +12,7 @@ import { BodyProp } from "typeswag";
 import { Hobby } from "../data/models/hobbies";
 
 @JsonController("/hobby")
-export default class UserController {
+export default class HobbyController {
   @Get("/:id")
   async get(@Param("id") id: string) {
     const user = await Hobby.findById(id);
