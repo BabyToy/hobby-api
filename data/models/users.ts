@@ -8,7 +8,7 @@ interface IUserModel extends Model<IUserDocument> {}
 
 const schema = new Schema({
   name: { type: String, index: true },
-  hobbies: [new Schema({ id: String })]
+  hobbies: [{ type: Schema.Types.ObjectId, ref: "Hobby" }]
 });
 
 schema.post("save", (error, doc, next) => {
