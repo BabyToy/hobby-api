@@ -3,11 +3,10 @@ import { Connection } from "mongoose";
 
 export default class MongoProvider {
   private _connection: Connection = {} as Connection;
-  private _version = "1.0.17";
   database: string;
 
   constructor(database?: string) {
-    this.database = "mongodb://backend:pbCQCBZVi2Nz@2i@ds050869.mlab.com:50869/hobbies";
+    this.database = "mongodb://backend:7zXzMPMYxCB74B94@ds050869.mlab.com:50869/hobbies";
     mongoose.Promise = global.Promise;
     mongoose.connection.on("connected", () => {
       this.database = mongoose.connection.db.databaseName;
@@ -30,10 +29,6 @@ export default class MongoProvider {
 
   get connection() {
     return this._connection;
-  }
-
-  get version() {
-    return this._version;
   }
 
   get connected() {
