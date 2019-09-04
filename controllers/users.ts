@@ -35,14 +35,20 @@ export default class UserController {
   @Post("/update")
   async updateUser(
     @BodyProp("id") @BodyParam("id") id: string,
-    @BodyProp("name") @BodyParam("name", { required: false }) name: string,
-    @BodyProp("hobbies") @BodyParam("hobbies", { required: false }) hobby: string[]
+    @BodyProp("name") @BodyParam("name", { required: false }) name?: string,
+    @BodyProp("hobbies") @BodyParam("hobbies", { required: false }) hobbies?: string[]
   ) {
     const user = await User.findById(id);
     if (!user) {
       throw new NotFoundError("User not found");
     }
-    return user;
+    if (name) {
+      user.name = name;
+    }
+    if (hobbies) {
+      user.hobbies = hobbies;
+    }
+    return user.save();
   }
 
   @Delete("/delete/:id")
