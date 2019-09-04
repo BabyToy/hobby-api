@@ -1,6 +1,7 @@
 import { Document, Model, model, Schema } from "mongoose";
-import { IHobby } from "../interfaces/hobbies";
 import Int32 = require("mongoose-int32");
+
+import { IHobby } from "../interfaces/IHobby";
 
 interface IHobbyDocument extends IHobby, Document {}
 

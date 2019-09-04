@@ -1,9 +1,8 @@
-﻿import "reflect-metadata";
+﻿import pkg = require("../package.json");
+import "reflect-metadata";
 
 import routingControllers = require("routing-controllers");
 import { SwaggerGenerator } from "typeswag";
-
-import pkg = require("../package.json");
 
 export const generateSwagger = () => {
   const swagger = new SwaggerGenerator();
